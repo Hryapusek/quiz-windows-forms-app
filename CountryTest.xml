@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test_program>
+    <themes>
+        <theme id="1" name="World Capitals">
+            <difficulty_level level="1" min_score="30" questions_per_session="5" time_limit="300">
+                <questions>
+                    <question id="1.1" points="10">
+                        <text>What is the capital of France?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">London</answer>
+                            <answer correct="true">Paris</answer>
+                            <answer correct="false">Berlin</answer>
+                            <answer correct="false">Madrid</answer>
+                        </answers>
+                    </question>
+                    <question id="1.2" points="10">
+                        <text>Which country has Tokyo as its capital?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">China</answer>
+                            <answer correct="false">South Korea</answer>
+                            <answer correct="true">Japan</answer>
+                            <answer correct="false">Thailand</answer>
+                        </answers>
+                    </question>
+                    <question id="1.3" points="10">
+                        <text>What is the capital of Canada?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">Toronto</answer>
+                            <answer correct="false">Montreal</answer>
+                            <answer correct="false">Vancouver</answer>
+                            <answer correct="true">Ottawa</answer>
+                        </answers>
+                    </question>
+                    <question id="1.4" points="10">
+                        <text>Which of these is the capital of Australia?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">Sydney</answer>
+                            <answer correct="false">Melbourne</answer>
+                            <answer correct="true">Canberra</answer>
+                            <answer correct="false">Perth</answer>
+                        </answers>
+                    </question>
+                    <question id="1.5" points="10">
+                        <text>Rome is the capital of which country?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="true">Italy</answer>
+                            <answer correct="false">Spain</answer>
+                            <answer correct="false">Greece</answer>
+                            <answer correct="false">Portugal</answer>
+                        </answers>
+                    </question>
+                </questions>
+            </difficulty_level>
+            
+            <difficulty_level level="2" min_score="80" questions_per_session="7" time_limit="420">
+                <questions>
+                    <question id="2.1" points="15">
+                        <text>What is the capital of Brazil?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">Rio de Janeiro</answer>
+                            <answer correct="false">São Paulo</answer>
+                            <answer correct="true">Brasília</answer>
+                            <answer correct="false">Salvador</answer>
+                        </answers>
+                    </question>
+                    <question id="2.2" points="15">
+                        <text>Which country has Pretoria as one of its capitals?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="true">South Africa</answer>
+                            <answer correct="false">Nigeria</answer>
+                            <answer correct="false">Kenya</answer>
+                            <answer correct="false">Egypt</answer>
+                        </answers>
+                    </question>
+                    <question id="2.3" points="15">
+                        <text>What is the capital of New Zealand?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">Auckland</answer>
+                            <answer correct="false">Christchurch</answer>
+                            <answer correct="true">Wellington</answer>
+                            <answer correct="false">Queenstown</answer>
+                        </answers>
+                    </question>
+                </questions>
+            </difficulty_level>
+            
+            <difficulty_level level="3" min_score="80" questions_per_session="10" time_limit="600">
+                <questions>
+                    <question id="3.1" points="20">
+                        <text>What is the capital of Bhutan?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">Kathmandu</answer>
+                            <answer correct="false">Dhaka</answer>
+                            <answer correct="true">Thimphu</answer>
+                            <answer correct="false">Paro</answer>
+                        </answers>
+                    </question>
+                    <question id="3.2" points="20">
+                        <text>Which country has three official capitals?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">Chile</answer>
+                            <answer correct="true">South Africa</answer>
+                            <answer correct="false">Malaysia</answer>
+                            <answer correct="false">Bolivia</answer>
+                        </answers>
+                    </question>
+                    <question id="3.3" points="20">
+                        <text>What is the capital of Turkmenistan?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">Dushanbe</answer>
+                            <answer correct="false">Bishkek</answer>
+                            <answer correct="true">Ashgabat</answer>
+                            <answer correct="false">Tashkent</answer>
+                        </answers>
+                    </question>
+                </questions>
+            </difficulty_level>
+        </theme>
+        
+        <theme id="2" name="Country Facts">
+            <difficulty_level level="1" min_score="0" questions_per_session="5" time_limit="300">
+                <questions>
+                    <question id="1.1" points="10">
+                        <text>Which country is the largest by area?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">China</answer>
+                            <answer correct="false">United States</answer>
+                            <answer correct="true">Russia</answer>
+                            <answer correct="false">Canada</answer>
+                        </answers>
+                    </question>
+                    <question id="1.2" points="10">
+                        <text>Which country has the most population?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">United States</answer>
+                            <answer correct="true">China</answer>
+                            <answer correct="false">India</answer>
+                            <answer correct="false">Indonesia</answer>
+                        </answers>
+                    </question>
+                </questions>
+            </difficulty_level>
+            
+            <difficulty_level level="2" min_score="80" questions_per_session="7" time_limit="420">
+                <questions>
+                    <question id="2.1" points="15">
+                        <text>Which country has the most official languages?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">India</answer>
+                            <answer correct="true">South Africa</answer>
+                            <answer correct="false">Switzerland</answer>
+                            <answer correct="false">Canada</answer>
+                        </answers>
+                    </question>
+                </questions>
+            </difficulty_level>
+            
+            <difficulty_level level="3" min_score="80" questions_per_session="10" time_limit="600">
+                <questions>
+                    <question id="3.1" points="20">
+                        <text>Which country has the most time zones?</text>
+                        <image>placeholder.jpg</image>
+                        <answers>
+                            <answer correct="false">United States</answer>
+                            <answer correct="false">China</answer>
+                            <answer correct="true">France</answer>
+                            <answer correct="false">Russia</answer>
+                        </answers>
+                    </question>
+                </questions>
+            </difficulty_level>
+        </theme>
+    </themes>
+</test_program>

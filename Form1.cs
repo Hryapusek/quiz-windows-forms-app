@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace tema6
 {
@@ -12,6 +13,7 @@ namespace tema6
 
         public Form1()
         {
+            AllocConsole();
             timer.Interval = 100;
             timer.Tick += (object sender, EventArgs e) =>
             {
@@ -42,6 +44,10 @@ namespace tema6
                 }
             }
         }
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool AllocConsole();
 
         private void ShowEditThemeForm()
         {

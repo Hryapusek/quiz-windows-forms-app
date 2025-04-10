@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -47,7 +48,9 @@ namespace tema6
                 new_location.Y += baseYOffset + i * 20;
                 radioButton.Location = new_location;
                 questionsBox.Controls.Add(radioButton);
-                pictureBox.ImageLocation = m_level.Questions[m_currentQuestion].ImagePath;
+                pictureBox.ImageLocation = Path.GetFullPath(m_level.Questions[m_currentQuestion].ImagePath);
+                Console.WriteLine("Path: " + Path.GetFullPath(m_level.Questions[m_currentQuestion].ImagePath));
+                Console.WriteLine("Current path: " + Path.GetFullPath(System.Reflection.Assembly.GetExecutingAssembly().Location));
                 radioButton.CheckedChanged += (object sender, EventArgs e) =>
                 {
                     if (radioButton.Checked)

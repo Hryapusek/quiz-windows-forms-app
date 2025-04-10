@@ -17,26 +17,8 @@ namespace tema6
             }
         }
 
-        public int PassingScore
+        Quiz()
         {
-            get
-            {
-                return m_passingScore;
-            }
-        }
-
-        public int MaxAttempts
-        {
-            get
-            {
-                return m_maxAttempts;
-            }
-        }
-
-        Quiz(int passingScore, int maxAttemps)
-        {
-            m_passingScore = passingScore;
-            m_maxAttempts = maxAttemps;
         }
 
         public void AddTheme(Theme theme)
@@ -50,11 +32,7 @@ namespace tema6
             xmlDoc.Load(filename);
             var xRoot = xmlDoc.DocumentElement;
 
-            // Parse global settings
-            int passingScore = int.Parse(xRoot.SelectSingleNode("settings/passing_score").InnerText);
-            int maxAttempts = int.Parse(xRoot.SelectSingleNode("settings/max_attempts").InnerText);
-
-            Quiz quiz = new Quiz(passingScore, maxAttempts);
+            Quiz quiz = new Quiz();
 
             // Parse themes
             XmlNodeList themeNodes = xRoot.SelectNodes("themes/theme");
@@ -174,25 +152,10 @@ namespace tema6
                     }
                 }
             }
-
-            // Add settings
-            XmlElement settingsElement = xmlDoc.CreateElement("settings");
-            rootElement.AppendChild(settingsElement);
-
-            XmlElement passingScoreElement = xmlDoc.CreateElement("passing_score");
-            passingScoreElement.InnerText = m_passingScore.ToString();
-            settingsElement.AppendChild(passingScoreElement);
-
-            XmlElement maxAttemptsElement = xmlDoc.CreateElement("max_attempts");
-            maxAttemptsElement.InnerText = m_maxAttempts.ToString();
-            settingsElement.AppendChild(maxAttemptsElement);
-
             // Save the document
             xmlDoc.Save(filename);
         }
 
         List<Theme> m_themes = new List<Theme>();
-        int m_passingScore;
-        int m_maxAttempts;
     }
 }
