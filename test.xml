@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test_program>
+    <themes>
+        <theme id="1" name="Mathematics">
+            <difficulty_level level="1" min_score="0" questions_per_session="5" time_limit="300">
+                <questions>
+                    <question id="1.1" points="10">
+                        <text>What is 2 + 2?</text>
+                        <image>C:\Users\1\Pictures\обои.jpg</image>
+                        <answers>
+                            <answer correct="true">4</answer>
+                            <answer correct="false">3</answer>
+                            <answer correct="false">5</answer>
+                            <answer correct="false">22</answer>
+                        </answers>
+                    </question>
+                    <question id="1.2" points="10">
+                        <text>Solve the equation: x + 5 = 10</text>
+                        <image>equation1.png</image>
+                        <answers>
+                            <answer correct="false">2</answer>
+                            <answer correct="true">5</answer>
+                            <answer correct="false">10</answer>
+                            <answer correct="false">15</answer>
+                        </answers>
+                    </question>
+                    <!-- More questions for level 1 (total 10) -->
+                </questions>
+            </difficulty_level>
+            
+            <difficulty_level level="2" min_score="80" questions_per_session="7" time_limit="420">
+                <questions>
+                    <question id="2.1" points="15">
+                        <text>What is the square root of 64?</text>
+                        <image>sqrt.png</image>
+                        <answers>
+                            <answer correct="false">4</answer>
+                            <answer correct="true">8</answer>
+                            <answer correct="false">32</answer>
+                            <answer correct="false">16</answer>
+                        </answers>
+                    </question>
+                    <!-- More questions for level 2 (total 10) -->
+                </questions>
+            </difficulty_level>
+            
+            <difficulty_level level="3" min_score="80" questions_per_session="10" time_limit="600">
+                <questions>
+                    <question id="3.1" points="20">
+                        <text>What is the derivative of x²?</text>
+                        <image>derivative.png</image>
+                        <answers>
+                            <answer correct="false">x</answer>
+                            <answer correct="true">2x</answer>
+                            <answer correct="false">x³/3</answer>
+                            <answer correct="false">1</answer>
+                        </answers>
+                    </question>
+                    <!-- More questions for level 3 (total 10) -->
+                </questions>
+            </difficulty_level>
+        </theme>
+        
+        <theme id="2" name="History">
+            <difficulty_level level="1" min_score="0" questions_per_session="5" time_limit="300">
+                <questions>
+                    <question id="1.1" points="10">
+                        <text>In what year did World War II end?</text>
+                        <image>ww2.jpg</image>
+                        <answers>
+                            <answer correct="false">1943</answer>
+                            <answer correct="false">1944</answer>
+                            <answer correct="true">1945</answer>
+                            <answer correct="false">1946</answer>
+                        </answers>
+                    </question>
+                    <!-- More questions for History level 1 (total 10) -->
+                </questions>
+            </difficulty_level>
+            
+            <!-- More difficulty levels for History -->
+        </theme>
+        
+        <!-- More themes -->
+    </themes>
+    
+    <settings>
+        <passing_score>80</passing_score>
+        <max_attempts>3</max_attempts>
+    </settings>
+</test_program>
