@@ -41,11 +41,23 @@ namespace tema6
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Xml Documents|*.xml";
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            var result = MessageBox.Show("Вы хотите сохранить файл?", "Подтверждение сохранения", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
             {
-                m_quiz.SaveToFile(saveFileDialog.FileName);
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Xml Documents|*.xml";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    m_quiz.SaveToFile(saveFileDialog.FileName);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+            }
+            else if (result == DialogResult.No)
+            {
                 this.DialogResult = DialogResult.OK;
             }
             else
@@ -170,11 +182,15 @@ namespace tema6
 
         private void FillOptions()
         {
-            int y = 20;
             optionsBox.Controls.Clear();
+            if (themeListBox.SelectedIndex == -1 || levelsListBox.SelectedIndex == -1 || questionsListBox.SelectedIndex == -1)
+            {
+                return;
+            }
+            int y = 20;
             var options = m_quiz.Themes[themeListBox.SelectedIndex]
-                                  .Levels[levelsListBox.SelectedIndex]
-                                  .Questions[questionsListBox.SelectedIndex].Options;
+                                      .Levels[levelsListBox.SelectedIndex]
+                                      .Questions[questionsListBox.SelectedIndex].Options;
             foreach (var option in options)
             {
                 var radioButton = new RadioButton();
