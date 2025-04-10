@@ -8,14 +8,6 @@ namespace tema6
 {
     internal class Theme
     {
-        public int ID
-        {
-            get
-            {
-                return m_id;
-            }
-        }
-
         public String Name
         { 
             get
@@ -32,8 +24,15 @@ namespace tema6
             }
         }
 
-        public Theme(int id, string name) { 
-            m_id = id;
+        public List<Level> Levels
+        {
+            get
+            {
+                return m_levels;
+            }
+        }
+
+        public Theme(string name) { 
             m_name = name;
         }
 
@@ -61,7 +60,6 @@ namespace tema6
             }
         }
 
-        int m_id;
         String m_name;
         List<Level> m_levels = new List<Level>();
         Level m_currentLevel;

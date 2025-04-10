@@ -8,17 +8,19 @@ namespace tema6
         Quiz m_quiz;
         Theme m_choosenTheme;
 
-        System.Windows.Forms.Timer timer = new();
+        Timer timer = new();
 
         public Form1()
         {
             timer.Interval = 100;
-            timer.Tick += (object sender, EventArgs e) => {
-                ((System.Windows.Forms.Timer)sender).Enabled = false;
+            timer.Tick += (object sender, EventArgs e) =>
+            {
+                ((Timer)sender).Enabled = false;
                 this.Close();
             };
-            if (! ShowLoadQuizForm())
+            if (!ShowLoadQuizForm())
             {
+                timer.Start();
                 return;
             }
 
@@ -29,38 +31,32 @@ namespace tema6
                 {
                     timer.Start();
                     return;
-                } else if (result == ThemeChooser.ChoosedOption.StartTest)
+                }
+                else if (result == ThemeChooser.ChoosedOption.StartTest)
                 {
                     ShowTestForm();
-                } else if (result == ThemeChooser.ChoosedOption.EditTheme)
+                }
+                else if (result == ThemeChooser.ChoosedOption.EditTheme)
                 {
                     ShowEditThemeForm();
                 }
             }
         }
 
-    private void ShowEditThemeForm()
-    {
-        var testForm = new TestForm(m_choosenTheme.CurrentLevel);
-        testForm.ShowDialog();
-        var score = testForm.CalculateScore();
-        if (score >= m_choosenTheme.CurrentLevel.MinScore)
+        private void ShowEditThemeForm()
         {
-            MessageBox.Show($"Вы набрали {score} баллов. Поздравляем, вы справились с тестом!", "Результаты", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            m_choosenTheme.NextLevel();
-        } else
-        {
-            MessageBox.Show($"Вы набрали {score} баллов. Минимальный проходной балл {m_choosenTheme.CurrentLevel.MinScore}. Надеемся в следующий раз вам повезет", "Результаты", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            var testForm = new ThemeEditor(m_quiz);
+            testForm.ShowDialog();
         }
-    }
 
-    private bool LoadQuizFromFile(String fileName)
+        private bool LoadQuizFromFile(String fileName)
         {
             try
             {
                 m_quiz = Quiz.LoadFromFile(fileName);
                 return true;
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -97,7 +93,8 @@ namespace tema6
                 {
                     m_choosenTheme = themeChooser.SelectedTheme;
                     return themeChooser.result;
-                } else
+                }
+                else
                 {
                     return themeChooser.result;
                 }
@@ -113,7 +110,8 @@ namespace tema6
             {
                 MessageBox.Show($"Вы набрали {score} баллов. Поздравляем, вы справились с тестом!", "Результаты", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 m_choosenTheme.NextLevel();
-            } else
+            }
+            else
             {
                 MessageBox.Show($"Вы набрали {score} баллов. Минимальный проходной балл {m_choosenTheme.CurrentLevel.MinScore}. Надеемся в следующий раз вам повезет", "Результаты", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

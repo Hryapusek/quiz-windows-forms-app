@@ -60,10 +60,9 @@ namespace tema6
             XmlNodeList themeNodes = xRoot.SelectNodes("themes/theme");
             foreach (XmlNode themeNode in themeNodes)
             {
-                int themeId = int.Parse(themeNode.Attributes["id"].Value);
                 string themeName = themeNode.Attributes["name"].Value;
                 
-                Theme theme = new Theme(themeId, themeName);
+                Theme theme = new Theme(themeName);
                 
                 // Parse difficulty levels
                 XmlNodeList levelNodes = themeNode.SelectNodes("difficulty_level");
