@@ -30,7 +30,7 @@
         {
             groupBox2 = new System.Windows.Forms.GroupBox();
             label8 = new System.Windows.Forms.Label();
-            qustionPointsBox = new System.Windows.Forms.TextBox();
+            questionPointsBox = new System.Windows.Forms.TextBox();
             levelNameEditor = new System.Windows.Forms.TextBox();
             themeNameEditor = new System.Windows.Forms.TextBox();
             questionsListBox = new System.Windows.Forms.ListBox();
@@ -62,7 +62,7 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(qustionPointsBox);
+            groupBox2.Controls.Add(questionPointsBox);
             groupBox2.Controls.Add(levelNameEditor);
             groupBox2.Controls.Add(themeNameEditor);
             groupBox2.Controls.Add(questionsListBox);
@@ -102,12 +102,12 @@
             label8.TabIndex = 29;
             label8.Text = "Очки";
             // 
-            // qustionPointsBox
+            // questionPointsBox
             // 
-            qustionPointsBox.Location = new System.Drawing.Point(570, 185);
-            qustionPointsBox.Name = "qustionPointsBox";
-            qustionPointsBox.Size = new System.Drawing.Size(131, 23);
-            qustionPointsBox.TabIndex = 28;
+            questionPointsBox.Location = new System.Drawing.Point(570, 185);
+            questionPointsBox.Name = "questionPointsBox";
+            questionPointsBox.Size = new System.Drawing.Size(131, 23);
+            questionPointsBox.TabIndex = 28;
             // 
             // levelNameEditor
             // 
@@ -355,6 +355,6 @@
         private System.Windows.Forms.TextBox levelNameEditor;
         private System.Windows.Forms.TextBox themeNameEditor;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox qustionPointsBox;
+        private System.Windows.Forms.TextBox questionPointsBox;
     }
 }

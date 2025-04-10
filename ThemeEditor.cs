@@ -34,7 +34,7 @@ namespace tema6
             this.minimalScoreBox.TextChanged += OnMinimalScoreChanged;
             this.questionBox.TextChanged += OnQuestionTextChanged;
             this.chooseImageBtn.Click += OnChooseImageBtnClick;
-            this.minimalScoreBox.TextChanged += OnQuestionMinimalScoreChanged;
+            this.questionPointsBox.TextChanged += OnQuestionMinimalScoreChanged;
             this.FormClosing += OnFormClosing;
             FillThemes();
         }
@@ -98,7 +98,10 @@ namespace tema6
         private void OnLevelChanged(object sender, EventArgs e)
         {
             if (levelsListBox.SelectedIndex != -1)
+            {
                 levelNameEditor.Text = m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].Name;
+                this.minimalScoreBox.Text = m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].MinScore.ToString();
+            }
             FillQuestions();
         }
 
@@ -167,7 +170,10 @@ namespace tema6
         private void OnQuestionChanged(object sender, EventArgs e)
         {
             if (questionsListBox.SelectedIndex != -1)
+            {
                 questionBox.Text = m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].Questions[questionsListBox.SelectedIndex].Text;
+                questionPointsBox.Text = m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].Questions[questionsListBox.SelectedIndex].Points.ToString();
+            }
             FillOptions();
         }
 
