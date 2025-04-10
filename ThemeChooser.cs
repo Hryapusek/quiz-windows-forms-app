@@ -12,12 +12,22 @@ namespace tema6
 {
     public partial class ThemeChooser : Form
     {
+        internal enum ChoosedOption
+        {
+            StartTest,
+            EditTheme,
+            Close
+        }
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         internal List<Theme> themes { get; set; }
-        internal DialogResult result = DialogResult.Cancel;
-        internal Theme SelectedTheme { 
-            get { 
+        internal ChoosedOption result = ChoosedOption.Close;
+        internal Theme SelectedTheme
+        {
+            get
+            {
                 return themes[this.themeCombobox.SelectedIndex];
-            } 
+            }
         }
 
         public ThemeChooser()
@@ -50,13 +60,19 @@ namespace tema6
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            result = DialogResult.Cancel;
+            result = ChoosedOption.Close;
             this.Close();
         }
 
         private void chooseTheme_Click(object sender, EventArgs e)
         {
-            result = DialogResult.OK;
+            result = ChoosedOption.StartTest;
+            this.Close();
+        }
+
+        private void editThemeBtn_Click(object sender, EventArgs e)
+        {
+            result = ChoosedOption.EditTheme;
             this.Close();
         }
     }

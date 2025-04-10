@@ -28,86 +28,87 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.themeCombobox = new System.Windows.Forms.ComboBox();
-            this.levelLabel = new System.Windows.Forms.Label();
-            this.chooseTheme = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.editThemeBtn = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            label1 = new System.Windows.Forms.Label();
+            themeCombobox = new System.Windows.Forms.ComboBox();
+            levelLabel = new System.Windows.Forms.Label();
+            chooseTheme = new System.Windows.Forms.Button();
+            cancelButton = new System.Windows.Forms.Button();
+            editThemeBtn = new System.Windows.Forms.Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Выберите тему";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(41, 97);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(84, 13);
+            label1.TabIndex = 0;
+            label1.Text = "Выберите тему";
             // 
             // themeCombobox
             // 
-            this.themeCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.themeCombobox.FormattingEnabled = true;
-            this.themeCombobox.Location = new System.Drawing.Point(204, 97);
-            this.themeCombobox.Name = "themeCombobox";
-            this.themeCombobox.Size = new System.Drawing.Size(341, 28);
-            this.themeCombobox.TabIndex = 1;
+            themeCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            themeCombobox.FormattingEnabled = true;
+            themeCombobox.Location = new System.Drawing.Point(204, 97);
+            themeCombobox.Name = "themeCombobox";
+            themeCombobox.Size = new System.Drawing.Size(341, 21);
+            themeCombobox.TabIndex = 1;
             // 
             // levelLabel
             // 
-            this.levelLabel.AutoSize = true;
-            this.levelLabel.Location = new System.Drawing.Point(200, 54);
-            this.levelLabel.Name = "levelLabel";
-            this.levelLabel.Size = new System.Drawing.Size(73, 20);
-            this.levelLabel.TabIndex = 2;
-            this.levelLabel.Text = "Уровень";
+            levelLabel.AutoSize = true;
+            levelLabel.Location = new System.Drawing.Point(200, 54);
+            levelLabel.Name = "levelLabel";
+            levelLabel.Size = new System.Drawing.Size(51, 13);
+            levelLabel.TabIndex = 2;
+            levelLabel.Text = "Уровень";
             // 
             // chooseTheme
             // 
-            this.chooseTheme.Location = new System.Drawing.Point(52, 164);
-            this.chooseTheme.Name = "chooseTheme";
-            this.chooseTheme.Size = new System.Drawing.Size(114, 44);
-            this.chooseTheme.TabIndex = 3;
-            this.chooseTheme.Text = "Выбрать";
-            this.chooseTheme.UseVisualStyleBackColor = true;
-            this.chooseTheme.Click += new System.EventHandler(this.chooseTheme_Click);
+            chooseTheme.Location = new System.Drawing.Point(52, 164);
+            chooseTheme.Name = "chooseTheme";
+            chooseTheme.Size = new System.Drawing.Size(114, 44);
+            chooseTheme.TabIndex = 3;
+            chooseTheme.Text = "Выбрать";
+            chooseTheme.UseVisualStyleBackColor = true;
+            chooseTheme.Click += chooseTheme_Click;
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(431, 164);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(114, 44);
-            this.cancelButton.TabIndex = 4;
-            this.cancelButton.Text = "Отмена";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            cancelButton.Location = new System.Drawing.Point(431, 164);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new System.Drawing.Size(114, 44);
+            cancelButton.TabIndex = 4;
+            cancelButton.Text = "Отмена";
+            cancelButton.UseVisualStyleBackColor = true;
+            cancelButton.Click += cancelButton_Click;
             // 
             // editThemeBtn
             // 
-            this.editThemeBtn.Location = new System.Drawing.Point(232, 164);
-            this.editThemeBtn.Name = "editThemeBtn";
-            this.editThemeBtn.Size = new System.Drawing.Size(144, 44);
-            this.editThemeBtn.TabIndex = 5;
-            this.editThemeBtn.Text = "Редактировать";
-            this.editThemeBtn.UseVisualStyleBackColor = true;
+            editThemeBtn.Location = new System.Drawing.Point(232, 164);
+            editThemeBtn.Name = "editThemeBtn";
+            editThemeBtn.Size = new System.Drawing.Size(144, 44);
+            editThemeBtn.TabIndex = 5;
+            editThemeBtn.Text = "Редактировать";
+            editThemeBtn.UseVisualStyleBackColor = true;
+            editThemeBtn.Click += editThemeBtn_Click;
             // 
             // ThemeChooser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 239);
-            this.Controls.Add(this.editThemeBtn);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.chooseTheme);
-            this.Controls.Add(this.levelLabel);
-            this.Controls.Add(this.themeCombobox);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Name = "ThemeChooser";
-            this.Text = "ThemeChooser";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size(597, 239);
+            Controls.Add(editThemeBtn);
+            Controls.Add(cancelButton);
+            Controls.Add(chooseTheme);
+            Controls.Add(levelLabel);
+            Controls.Add(themeCombobox);
+            Controls.Add(label1);
+            Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
+            Name = "ThemeChooser";
+            Text = "ThemeChooser";
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace tema6
@@ -15,28 +8,53 @@ namespace tema6
         Quiz m_quiz;
         Theme m_choosenTheme;
 
+        System.Windows.Forms.Timer timer = new();
+
         public Form1()
         {
-            InitializeComponent();
+            timer.Interval = 100;
+            timer.Tick += (object sender, EventArgs e) => {
+                ((System.Windows.Forms.Timer)sender).Enabled = false;
+                this.Close();
+            };
             if (! ShowLoadQuizForm())
             {
-                this.Close();
                 return;
             }
 
             while (true)
             {
-                if (!ShowChooseThemeForm())
+                var result = ShowChooseThemeForm();
+                if (result == ThemeChooser.ChoosedOption.Close)
                 {
-                    this.Close();
+                    timer.Start();
                     return;
+                } else if (result == ThemeChooser.ChoosedOption.StartTest)
+                {
+                    ShowTestForm();
+                } else if (result == ThemeChooser.ChoosedOption.EditTheme)
+                {
+                    ShowEditThemeForm();
                 }
-
-                ShowTestForm();
             }
         }
 
-        private bool LoadQuizFromFile(String fileName)
+    private void ShowEditThemeForm()
+    {
+        var testForm = new TestForm(m_choosenTheme.CurrentLevel);
+        testForm.ShowDialog();
+        var score = testForm.CalculateScore();
+        if (score >= m_choosenTheme.CurrentLevel.MinScore)
+        {
+            MessageBox.Show($"Вы набрали {score} баллов. Поздравляем, вы справились с тестом!", "Результаты", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            m_choosenTheme.NextLevel();
+        } else
+        {
+            MessageBox.Show($"Вы набрали {score} баллов. Минимальный проходной балл {m_choosenTheme.CurrentLevel.MinScore}. Надеемся в следующий раз вам повезет", "Результаты", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+    }
+
+    private bool LoadQuizFromFile(String fileName)
         {
             try
             {
@@ -67,7 +85,7 @@ namespace tema6
             }
         }
 
-        private bool ShowChooseThemeForm()
+        private ThemeChooser.ChoosedOption ShowChooseThemeForm()
         {
             while (true)
             {
@@ -75,13 +93,13 @@ namespace tema6
                 themeChooser.themes = m_quiz.Themes;
                 themeChooser.UpdateComponents();
                 themeChooser.ShowDialog();
-                if (themeChooser.result == DialogResult.OK)
+                if (themeChooser.result == ThemeChooser.ChoosedOption.StartTest)
                 {
                     m_choosenTheme = themeChooser.SelectedTheme;
-                    return true;
+                    return themeChooser.result;
                 } else
                 {
-                    return false;
+                    return themeChooser.result;
                 }
             }
         }

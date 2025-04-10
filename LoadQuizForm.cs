@@ -14,6 +14,7 @@ namespace tema6
     {
         public DialogResult result = DialogResult.Cancel;
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String PathToFile { get; private set; }
 
         public LoadQuizForm()
