@@ -8,24 +8,13 @@ namespace tema6
 {
     internal class Option
     {
-        public String Value {
-            get {
-                return m_value; 
-            }
-        }
+        public String Value { get; set; } = "";
 
-        public bool IsCorrect { 
-            get {
-                return m_isCorrect;
-            }
-        }
+        public bool IsCorrect { get; set; } = false;
 
-        public Option(String value, bool IsCorrect) {
-            m_value = value;
-            m_isCorrect = IsCorrect;
+        public Option(String value, bool isCorrect) {
+            Value = value;
+            IsCorrect = isCorrect;
         }
-
-        private String m_value;
-        private bool m_isCorrect;
     }
 }

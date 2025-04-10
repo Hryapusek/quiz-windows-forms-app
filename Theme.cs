@@ -8,60 +8,38 @@ namespace tema6
 {
     internal class Theme
     {
-        public String Name
-        { 
-            get
-            {
-                return m_name;
-            }
-        }
+        public String Name { get; set; } = "";
 
-        public Level CurrentLevel
-        {
-            get
-            {
-                return m_currentLevel;
-            }
-        }
+        public Level CurrentLevel { get; set; }
 
-        public List<Level> Levels
-        {
-            get
-            {
-                return m_levels;
-            }
-        }
+        public List<Level> Levels { get; set; } = new List<Level>();
 
         public Theme(string name) { 
-            m_name = name;
+            Name = name;
         }
 
         public void AddLevel(Level level)
         {
-            m_levels.Add(level);
-            if (m_levels.Count == 1)
+            Levels.Add(level);
+            if (Levels.Count == 1)
             {
-                m_currentLevel = level;
+                CurrentLevel = level;
             }
         }
 
         public void NextLevel()
         {
-            for (int i = 0; i < m_levels.Count; i++)
+            for (int i = 0; i < Levels.Count; i++)
             {
-                if (m_levels[i] == m_currentLevel)
+                if (Levels[i] == CurrentLevel)
                 {
-                    if (i < m_levels.Count - 1)
+                    if (i < Levels.Count - 1)
                     {
-                        m_currentLevel = m_levels[i + 1];
+                        CurrentLevel = Levels[i + 1];
                         return;
                     }
                 }
             }
         }
-
-        String m_name;
-        List<Level> m_levels = new List<Level>();
-        Level m_currentLevel;
     }
 }

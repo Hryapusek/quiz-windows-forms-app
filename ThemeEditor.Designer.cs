@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox2 = new System.Windows.Forms.GroupBox();
+            levelNameEditor = new System.Windows.Forms.TextBox();
+            themeNameEditor = new System.Windows.Forms.TextBox();
             questionsListBox = new System.Windows.Forms.ListBox();
             levelsListBox = new System.Windows.Forms.ListBox();
             themeListBox = new System.Windows.Forms.ListBox();
@@ -45,15 +47,13 @@
             questionBox = new System.Windows.Forms.TextBox();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            textBox1 = new System.Windows.Forms.TextBox();
+            minimalScoreBox = new System.Windows.Forms.TextBox();
             deleteLevelBtn = new System.Windows.Forms.Button();
             addLevelBtn = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             deleteThemeBtn = new System.Windows.Forms.Button();
             addThemeBtn = new System.Windows.Forms.Button();
-            themeNameEditor = new System.Windows.Forms.TextBox();
-            levelNameEditor = new System.Windows.Forms.TextBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             SuspendLayout();
@@ -78,7 +78,7 @@
             groupBox2.Controls.Add(questionBox);
             groupBox2.Controls.Add(label4);
             groupBox2.Controls.Add(label3);
-            groupBox2.Controls.Add(textBox1);
+            groupBox2.Controls.Add(minimalScoreBox);
             groupBox2.Controls.Add(deleteLevelBtn);
             groupBox2.Controls.Add(addLevelBtn);
             groupBox2.Controls.Add(label2);
@@ -90,6 +90,20 @@
             groupBox2.Size = new System.Drawing.Size(989, 583);
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
+            // 
+            // levelNameEditor
+            // 
+            levelNameEditor.Location = new System.Drawing.Point(6, 328);
+            levelNameEditor.Name = "levelNameEditor";
+            levelNameEditor.Size = new System.Drawing.Size(244, 23);
+            levelNameEditor.TabIndex = 27;
+            // 
+            // themeNameEditor
+            // 
+            themeNameEditor.Location = new System.Drawing.Point(6, 162);
+            themeNameEditor.Name = "themeNameEditor";
+            themeNameEditor.Size = new System.Drawing.Size(244, 23);
+            themeNameEditor.TabIndex = 26;
             // 
             // questionsListBox
             // 
@@ -229,12 +243,12 @@
             label3.TabIndex = 9;
             label3.Text = "Минимальный счет";
             // 
-            // textBox1
+            // minimalScoreBox
             // 
-            textBox1.Location = new System.Drawing.Point(131, 372);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(100, 23);
-            textBox1.TabIndex = 8;
+            minimalScoreBox.Location = new System.Drawing.Point(131, 372);
+            minimalScoreBox.Name = "minimalScoreBox";
+            minimalScoreBox.Size = new System.Drawing.Size(100, 23);
+            minimalScoreBox.TabIndex = 8;
             // 
             // deleteLevelBtn
             // 
@@ -290,20 +304,6 @@
             addThemeBtn.Text = "Добавить тему";
             addThemeBtn.UseVisualStyleBackColor = true;
             // 
-            // themeNameEditor
-            // 
-            themeNameEditor.Location = new System.Drawing.Point(6, 162);
-            themeNameEditor.Name = "themeNameEditor";
-            themeNameEditor.Size = new System.Drawing.Size(244, 23);
-            themeNameEditor.TabIndex = 26;
-            // 
-            // levelNameEditor
-            // 
-            levelNameEditor.Location = new System.Drawing.Point(6, 328);
-            levelNameEditor.Name = "levelNameEditor";
-            levelNameEditor.Size = new System.Drawing.Size(244, 23);
-            levelNameEditor.TabIndex = 27;
-            // 
             // ThemeEditor
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -331,7 +331,7 @@
         private System.Windows.Forms.TextBox questionBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox minimalScoreBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox optionsBox;
         private System.Windows.Forms.PictureBox pictureBox;

@@ -9,66 +9,32 @@ namespace tema6
 {
     internal class Question
     {
-        public List<Option> options {
-            get {
-                return m_options;
-            }
-        }
+        public List<Option> Options {get; set;} = new();
 
-        public int points
+        public int Points {get; set;} = new();
+
+        public String ID {get; set;} = "";
+
+        public String Text {get; set;} = "";
+
+        public String ImagePath {get; set;} = "";
+
+        public Question(int points, string id, string text, string ImagePath)
         {
-            get
-            {
-                return m_points;
-            }
-        }
-
-        public String id
-        {
-            get
-            {
-                return m_id;
-            }
-        }
-
-        public String Text
-        { 
-            get
-            {
-                return m_text;
-            }
-        }
-
-        public String image_path
-        {
-            get
-            {
-                return m_image_path;
-            }
-        }
-
-        public Question(int points, string id, string text, string image_path)
-        {
-            m_points = points;
-            m_id = id;
-            m_text = text;
-            m_image_path = image_path;
+            Points = points;
+            ID = id;
+            Text = text;
+            this.ImagePath = ImagePath;
         }
 
         public void AddOption(Option option)
         {
-            m_options.Add(option);
+            Options.Add(option);
         }
 
         public void SetOptions(List<Option> options)
         {
-            m_options = options;
+            Options = options;
         }
-
-        List<Option> m_options;
-        int m_points;
-        String m_id;
-        String m_text;
-        String m_image_path;
     }
 }

@@ -42,7 +42,7 @@ namespace tema6
             {
                 return;
             }
-            this.levelLabel.Text = "Уровень " + this.themes[this.themeCombobox.SelectedIndex].CurrentLevel.DifficultyLevel;
+            this.levelLabel.Text = "Уровень " + this.themes[this.themeCombobox.SelectedIndex].CurrentLevel.Name;
         }
 
         public void UpdateComponents()

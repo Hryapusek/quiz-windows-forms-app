@@ -68,10 +68,8 @@ namespace tema6
                 XmlNodeList levelNodes = themeNode.SelectNodes("difficulty_level");
                 foreach (XmlNode levelNode in levelNodes)
                 {
-                    string difficultyLevel = levelNode.Attributes["level"].Value;
+                    string levelName = levelNode.Attributes["level"].Value;
                     int minScore = int.Parse(levelNode.Attributes["min_score"].Value);
-                    int questionsPerSession = int.Parse(levelNode.Attributes["questions_per_session"].Value);
-                    int timeLimit = int.Parse(levelNode.Attributes["time_limit"].Value);
                     
                     List<Question> questions = new List<Question>();
                     
@@ -101,7 +99,7 @@ namespace tema6
                         questions.Last().SetOptions(options);
                     }
                     
-                    Level level = new Level(questions, difficultyLevel, minScore, questionsPerSession, timeLimit);
+                    Level level = new Level(questions, levelName, minScore);
                     theme.AddLevel(level);
                 }
                 

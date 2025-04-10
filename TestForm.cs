@@ -23,7 +23,7 @@ namespace tema6
             answers = new List<bool>();
             for (int i = 0; i < level.Questions.Count; i++)
             {
-                answers.Add(level.Questions[i].options[0].IsCorrect);
+                answers.Add(level.Questions[i].Options[0].IsCorrect);
             }
             InitializeComponent();
             ShowCurrentQuestion();
@@ -38,7 +38,7 @@ namespace tema6
             questionsBox.Controls.Clear();
             int i = 0;
             int baseYOffset = 10;
-            foreach (Option option in m_level.Questions[m_currentQuestion].options)
+            foreach (Option option in m_level.Questions[m_currentQuestion].Options)
             {
                 var radioButton = new RadioButton();
                 radioButton.Text = option.Value;
@@ -47,7 +47,7 @@ namespace tema6
                 new_location.Y += baseYOffset + i * 20;
                 radioButton.Location = new_location;
                 questionsBox.Controls.Add(radioButton);
-                pictureBox.ImageLocation = m_level.Questions[m_currentQuestion].image_path;
+                pictureBox.ImageLocation = m_level.Questions[m_currentQuestion].ImagePath;
                 radioButton.CheckedChanged += (object sender, EventArgs e) =>
                 {
                     if (radioButton.Checked)
@@ -115,7 +115,7 @@ namespace tema6
             {
                 if (answers[i])
                 {
-                    result += m_level.Questions[i].points;
+                    result += m_level.Questions[i].Points;
                 }
             }
             return result;

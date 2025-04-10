@@ -8,62 +8,20 @@ namespace tema6
 {
     internal class Level
     {
-        public List<Question> Questions {
-            get {
-                return m_questions;
-            }
-        }
+        public string Name { get; set; }
+        public List<Question> Questions { get; set; } = new();
+        public int MinScore { get; set; }
 
-        public String DifficultyLevel
+        public Level(List<Question> questions, string name, int minScore)
         {
-            get
-            {
-                return m_level;
-            }
-        }
-
-        public int MinScore
-        { 
-            get
-            {
-                return m_minScore;
-            }
-        }
-
-        public int QuestionsPerSession
-        {
-            get
-            {
-                return m_questionsPerSession;
-            }
-        }
-
-        public int TimeLimit
-        {
-            get
-            {
-                return m_timeLimit;
-            }
-        }
-
-        public Level(List<Question> questions, string level, int minScore, int questionsPerSession, int time_limit)
-        {
-            m_questions = questions;
-            m_level = level;
-            m_minScore = minScore;
-            m_questionsPerSession = questionsPerSession;
-            m_timeLimit = time_limit;
+            Name = name;
+            Questions = questions;
+            MinScore = minScore;
         }
 
         public void AddQuestion(Question question)
         {
-            m_questions.Add(question);
+            Questions.Add(question);
         }
-
-        List<Question> m_questions;
-        String m_level;
-        int m_minScore;
-        int m_questionsPerSession;
-        int m_timeLimit;
     }
 }
