@@ -35,7 +35,23 @@ namespace tema6
             this.questionBox.TextChanged += OnQuestionTextChanged;
             this.chooseImageBtn.Click += OnChooseImageBtnClick;
             this.minimalScoreBox.TextChanged += OnQuestionMinimalScoreChanged;
+            this.FormClosing += OnFormClosing;
             FillThemes();
+        }
+
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Xml Documents|*.xml";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                m_quiz.SaveToFile(saveFileDialog.FileName);
+                this.DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
 
         private void OnThemeChanged(object sender, EventArgs e)
