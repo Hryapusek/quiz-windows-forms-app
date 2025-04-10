@@ -19,6 +19,12 @@ namespace tema6
             MinScore = minScore;
         }
 
+        public Level(string name, int minScore = 100)
+        {
+            Name = name;
+            MinScore = minScore;
+        }
+
         public void AddQuestion(Question question)
         {
             Questions.Add(question);

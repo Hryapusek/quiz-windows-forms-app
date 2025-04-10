@@ -13,18 +13,22 @@ namespace tema6
 
         public int Points {get; set;} = new();
 
-        public String ID {get; set;} = "";
-
         public String Text {get; set;} = "";
 
         public String ImagePath {get; set;} = "";
 
-        public Question(int points, string id, string text, string ImagePath)
+        public Question(int points, string text, string imagePath)
         {
             Points = points;
-            ID = id;
             Text = text;
-            this.ImagePath = ImagePath;
+            ImagePath = imagePath;
+        }
+
+        public Question(string text = "", string imagePath = "", int points = 5)
+        {
+            Points = points;
+            Text = text;
+            ImagePath = imagePath;
         }
 
         public void AddOption(Option option)

@@ -19,6 +19,13 @@ namespace tema6
             m_quiz = quiz;
             InitializeComponent();
             this.addThemeBtn.Click += (object sender, EventArgs e) => { AddTheme(); };
+            this.deleteThemeBtn.Click += (object sender, EventArgs e) => { DeleteTheme(); };
+            this.addLevelBtn.Click += (object sender, EventArgs e) => { AddLevel(); };
+            this.deleteLevelBtn.Click += (object sender, EventArgs e) => { DeleteLevel(); };
+            this.addQuestionBtn.Click += (object sender, EventArgs e) => { AddQuestion(); };
+            this.deleteQuestionBtn.Click += (object sender, EventArgs e) => { DeleteQuestion(); };
+            this.addOptionBtn.Click += (object sender, EventArgs e) => { AddOption(); };
+            this.deleteOptionBtn.Click += (object sender, EventArgs e) => { DeleteOption(); };
             this.themeListBox.SelectedIndexChanged += OnThemeChanged;
             this.levelsListBox.SelectedIndexChanged += OnLevelChanged;
             this.questionsListBox.SelectedIndexChanged += OnQuestionChanged;
@@ -27,6 +34,7 @@ namespace tema6
             this.minimalScoreBox.TextChanged += OnMinimalScoreChanged;
             this.questionBox.TextChanged += OnQuestionTextChanged;
             this.chooseImageBtn.Click += OnChooseImageBtnClick;
+            this.minimalScoreBox.TextChanged += OnQuestionMinimalScoreChanged;
             FillThemes();
         }
 
@@ -97,7 +105,12 @@ namespace tema6
             {
                 if (int.TryParse(minimalScoreBox.Text, out var score))
                 {
+                    minimalScoreBox.BorderStyle = BorderStyle.None;
+                    minimalScoreBox.ForeColor = Color.Black;
                     m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].MinScore = score;
+                } else {
+                    minimalScoreBox.BorderStyle = BorderStyle.FixedSingle;
+                    minimalScoreBox.ForeColor = Color.Red;                    
                 }
             }
         }
@@ -195,6 +208,82 @@ namespace tema6
             m_quiz.AddTheme(newTheme);
             themeListBox.Items.Add(newTheme.Name);
             themeListBox.SelectedIndex = themeListBox.Items.Count - 1;
+        }
+
+        private void DeleteTheme()
+        {
+            if (themeListBox.SelectedIndex != -1)
+            {
+                m_quiz.Themes.RemoveAt(themeListBox.SelectedIndex);
+                themeListBox.Items.RemoveAt(themeListBox.SelectedIndex);
+            }
+        }
+
+        private void AddLevel()
+        {
+            var newLevel = new Level("Новый уровень");
+            m_quiz.Themes[themeListBox.SelectedIndex].AddLevel(newLevel);
+            FillLevels();
+        }
+
+        private void DeleteLevel()
+        {
+            if (levelsListBox.SelectedIndex != -1)
+            {
+                m_quiz.Themes[themeListBox.SelectedIndex].Levels.RemoveAt(levelsListBox.SelectedIndex);
+                FillLevels();
+            }
+        }
+
+        private void AddQuestion()
+        {
+            var newQuestion = new Question("Новый вопрос");
+            m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].AddQuestion(newQuestion);
+            this.questionsListBox.Items.Add(newQuestion.Text);
+            this.questionsListBox.SelectedIndex = this.questionsListBox.Items.Count - 1;
+            FillQuestions();
+        }
+
+        private void DeleteQuestion()
+        {
+            if (questionsListBox.SelectedIndex != -1)
+            {
+                m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].Questions.RemoveAt(questionsListBox.SelectedIndex);
+                FillQuestions();
+            }
+        }
+
+        private void OnQuestionMinimalScoreChanged(object sender, EventArgs e)
+        {
+            if (questionsListBox.SelectedIndex != -1)
+            {
+                if (int.TryParse(minimalScoreBox.Text, out var points))
+                {
+                    minimalScoreBox.BorderStyle = BorderStyle.None;
+                    minimalScoreBox.ForeColor = Color.Black;
+                    m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].Questions[questionsListBox.SelectedIndex].Points = points;
+                } else {
+                    minimalScoreBox.BorderStyle = BorderStyle.FixedSingle;
+                    minimalScoreBox.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        private void AddOption()
+        {
+            var newOption = new Option("Новый вариант ответа", false);
+            m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].Questions[questionsListBox.SelectedIndex].AddOption(newOption);
+            FillOptions();
+        }
+
+        private void DeleteOption()
+        {
+            var options = m_quiz.Themes[themeListBox.SelectedIndex].Levels[levelsListBox.SelectedIndex].Questions[questionsListBox.SelectedIndex].Options;
+            if (options.Count > 0)
+            {
+                options.RemoveAt(options.Count - 1);
+                FillOptions();
+            }
         }
     }
 }

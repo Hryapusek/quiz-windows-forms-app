@@ -77,7 +77,6 @@ namespace tema6
                     XmlNodeList questionNodes = levelNode.SelectNodes("questions/question");
                     foreach (XmlNode questionNode in questionNodes)
                     {
-                        string questionId = questionNode.Attributes["id"].Value;
                         int points = int.Parse(questionNode.Attributes["points"].Value);
                         string questionText = questionNode.SelectSingleNode("text").InnerText;
                         string imagePath = questionNode.SelectSingleNode("image").InnerText;
@@ -95,7 +94,7 @@ namespace tema6
                         // Create question with first option (you might need to modify this)
                         // Note: Your Question class only takes one Option but XML has multiple
                         // You'll need to decide how to handle this
-                        questions.Add(new Question(points, questionId, questionText, imagePath));
+                        questions.Add(new Question(points, questionText, imagePath));
                         questions.Last().SetOptions(options);
                     }
                     
